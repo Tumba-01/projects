@@ -1,44 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />|
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
 </head>
-<div id="blob"></div>
-<div id="blur"></div>
-    <div class="warning-box">
-      <span class="material-symbols-outlined">
-        warning
-        </span>
-        <div class="link-box">
-          <p>This page is under construction!</p>
-          <p>For my CV please click the buttons bellow!</p>
-          <p>In case of link expiry, please do not hesitate to contact me!</p>
-          <p><a href="mailto:sergej@kulpinac.com" class="mailto";>sergej@kulpinac.com</a></p>
-      </div>
-        <div class="download-box">
-        <h1>Download or View</h1>
-        <button id="download-btn" onclick="location.href='https://dl.dropboxusercontent.com/s/1xyj92yqoo6otf5/Sergej%20Kulpinac%20Latest%20CV.pdf?dl=0'" type="button"><i class="fa-solid fa-download"></i> Download</button>
-        <button id="view-btn" onclick="location.href='https://ttm.sh/WXZ.pdf'" type="button"><i class="fa-solid fa-eye"></i> View</button>
-      </div>
-      <p>Projects on show!</p>
-      <div class="project-links">
-        <a href="http://melder-probe.vercel.app/">AudioMarker</a>
-        <a href="https://rmec.tumba.dev/">RMEC</a>
-        <a href="https://github.com/Tumba123/RMEC/releases/tag/RMEC-v2.0">RMEC 2.0</a>
-        <a href="https://github.com/Tumba123/RMEC/releases/tag/v.1.01">Endo Hunter</a>
-        <a href="http://sergej.kulpinac.com">Portfolio</a>
-        <a href="https://tumba123.github.io/Warframe-Recruiter/">Warframe Recruiter</a>
-        <a href="https://chronoframe.tumba.dev/">ChronoFrame</a>
-        <a href="https://tumba123.github.io/bst352/">Tasker</a>
-        <a href="http://stundenbuch.kulpinac.com/">Hourly</a>
-        <span>and more to come!</span>
-      </div>      
-    </div>
-<script src='app.js'></script>
-</html>
+<body>
+    <nav>
+        <ul class="nav-bar">
+            <li class="latest-btn" id="latest-cv">
+                <form action="https://cv.kulpinac.com" target="_blank">
+                    <button class="main-btn" type="submit">Latest CV</button>
+                </form>
+            </li>
+            <li class="projects-btn" id="projects">
+                <form action="https://projects.kulpinac.com" target="_blank">
+                    <button class="main-btn" type="submit">Projects</button>
+                </form>
+            </li>
+            <li class="about-btn" id="about">
+                <form action="https://about.kulpinac.com" target="_blank">
+                    <button class="main-btn" type="submit">About</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
 
+    <div id="blob"></div>
+    <div id="blur"></div>
+
+    <main class="page-wrap">
+
+        <div class="center fade-in">
+            <h1 class="page-title">Projects</h1>
+            <p class="page-subtitle">A showcase of things I've built.</p>
+        </div>
+
+        <!-- ============================================================
+             GALLERY TEMPLATE
+             data-media-type: "image" (also used for GIFs) | "video" | "iframe"
+             data-media-src: comma-separated URLs for multiple items.
+             First URL = card thumbnail. Click card -> lightbox with
+             hover arrows + keyboard left/right to page through items.
+             ============================================================ -->
+        <section class="gallery">
+
+            <!-- ---------- SUPPLY TRACKER ---------- -->
+            <article class="gallery-card"
+                     data-media-type="image"
+                     data-media-src="https://picsur.tumba.dev/i/7497bfe8-f19c-4205-99ef-3b3db6bd781d.jpg,https://picsur.tumba.dev/i/19b0ef78-b9be-4f47-bd8a-6e0e51fe105c.jpg,https://picsur.tumba.dev/i/60260f7b-6c2f-41cb-bdfe-f9ec62526923.jpg">
+                <div class="gallery-media">
+                    <img src="https://picsur.tumba.dev/i/dbc14ead-94d8-4f69-a204-ad940d55d461.jpg" alt="Supply Tracker screenshot" loading="lazy">
+                </div>
+                <div class="gallery-info">
+                    <h2>Supply Tracker</h2>
+                    <p>Short description of what the project does and the stack used.</p>
+                    <div class="gallery-tags">
+                        <span>Django</span>
+                        <span>Docker</span>
+                    </div>
+                    <div class="card-footer">
+                        <a class="gallery-link" href="https://st.kulpinac.com" target="_blank" rel="noopener">
+                            View project <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <div class="ai-badge" tabindex="0">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span class="ai-badge-label">AI</span>
+                            <div class="ai-badge-tooltip">
+                                Preview shown above is an AI-generated mockup (Gemini). Click the image to see real project screenshots.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ---------- AUDIO MARKER ---------- -->
+            <article class="gallery-card"
+                     data-media-type="image"
+                     data-media-src="https://picsur.tumba.dev/i/0a6f8448-f32c-4811-a0b4-6c44067b94c6.jpg,https://picsur.tumba.dev/i/e3af6e9f-357b-4f64-8fad-e9a6876ad9b6.jpg,https://picsur.tumba.dev/i/3f6e3c29-2916-4414-8495-4ff0e4473746.jpg">
+                <div class="gallery-media">
+                    <img src="https://picsur.tumba.dev/i/32053dc1-574e-4011-b9a6-f24b6c85eaa8.jpg" alt="Audio Marker" loading="lazy">
+                </div>
+                <div class="gallery-info">
+                    <h2>Audio Marker</h2>
+                    <p>Short description of what the project does and the stack used.</p>
+                    <div class="gallery-tags">
+                        <span>Python</span>
+                        <span>Audio Processing</span>
+                    </div>
+                    <div class="card-footer">
+                        <a class="gallery-link" href="https://mp.kulpinac.com" target="_blank" rel="noopener">
+                            View project <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <div class="ai-badge" tabindex="0">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span class="ai-badge-label">AI</span>
+                            <div class="ai-badge-tooltip">
+                                Preview shown above is an AI-generated mockup (Gemini). Click the image to see real project screenshots.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ---------- WORK TIME TRACKER ---------- -->
+            <article class="gallery-card"
+                     data-media-type="image"
+                     data-media-src="https://picsur.tumba.dev/i/d820d44d-e68e-443a-8598-0e2e3580941c.jpg,https://picsur.tumba.dev/i/e45b8c90-f145-4a1b-89cc-adef9074a398.jpg,https://picsur.tumba.dev/i/8ab6712d-3904-4e11-bcd1-1f390247e80a.jpg">
+                <div class="gallery-media">
+                    <img src="https://picsur.tumba.dev/i/079953f7-e654-46bd-a225-ecd789ee232c.jpg" alt="Time Tracker" loading="lazy">
+                </div>
+                <div class="gallery-info">
+                    <h2>Work Time Tracker</h2>
+                    <p>Short description of what the project does and the stack used.</p>
+                    <div class="gallery-tags">
+                        <span>FastAPI</span>
+                        <span>SQLAlchemy</span>
+                    </div>
+                    <div class="card-footer">
+                        <a class="gallery-link" href="https://time.kulpinac.com" target="_blank" rel="noopener">
+                            View project <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <div class="ai-badge" tabindex="0">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span class="ai-badge-label">AI</span>
+                            <div class="ai-badge-tooltip">
+                                Preview shown above is an AI-generated mockup (Gemini). Click the image to see real project screenshots.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Duplicate the pattern above for every additional project -->
+
+        </section>
+
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <span id="lightbox-close" class="lightbox-close">&times;</span>
+        <button id="lightbox-prev" class="lightbox-arrow lightbox-arrow-left" type="button" aria-label="Previous">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div id="lightbox-content" class="lightbox-content"></div>
+        <button id="lightbox-next" class="lightbox-arrow lightbox-arrow-right" type="button" aria-label="Next">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <div id="lightbox-counter" class="lightbox-counter"></div>
+    </div>
+
+    <script src='app.js'></script>
+</body>
+</html>
