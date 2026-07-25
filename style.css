@@ -3,6 +3,10 @@
   --blue: rgb(41, 121, 255);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -43,7 +47,7 @@ body {
   pointer-events: none;
 }
 
-/* ===== NAV — unchanged from portfolio site ===== */
+/* ===== NAV ===== */
 nav {
   position: fixed;
   top: 0;
@@ -89,6 +93,7 @@ nav li {
   cursor: pointer;
   border-radius: 16px;
   transition: 0.5s;
+  font-size: 14px;
 }
 
 .main-btn:hover {
@@ -116,6 +121,19 @@ nav li {
 
 .latest-btn:hover ~ .projects-btn button,
 .latest-btn:hover ~ .about-btn button {
+  color: white;
+}
+
+/* On touch devices there's no hover, so the nav is expanded permanently
+   via a "touch-device" class added by JS (feature-detected). */
+body.touch-device .projects-btn,
+body.touch-device .about-btn {
+  margin-left: 0;
+  font-size: 14px;
+}
+
+body.touch-device .projects-btn button,
+body.touch-device .about-btn button {
   color: white;
 }
 
@@ -258,6 +276,7 @@ nav li {
   z-index: 10000;
   align-items: center;
   justify-content: center;
+  touch-action: pan-y;
 }
 
 .lightbox.active { display: flex; }
@@ -338,12 +357,7 @@ nav li {
 
 a { color: white; }
 
-/* =========================================================
-   CARD FOOTER + AI NOTICE BADGE (new)
-   Small "AI" pill next to the View project link. Hovering
-   (or focusing, for keyboard/touch users) expands it to show
-   an explanation that the preview thumbnails are AI mockups.
-   ========================================================= */
+/* ===== CARD FOOTER + AI BADGE ===== */
 .card-footer {
   display: flex;
   align-items: center;
@@ -363,14 +377,13 @@ a { color: white; }
   padding: 5px 10px;
   font-size: 11px;
   color: rgba(255, 255, 255, 0.75);
-  cursor: default;
+  cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s;
   outline: none;
+  font-family: inherit;
 }
 
-.ai-badge i {
-  font-size: 11px;
-}
+.ai-badge i { font-size: 11px; }
 
 .ai-badge-label {
   font-family: "Rubik", sans-serif;
@@ -378,7 +391,8 @@ a { color: white; }
 }
 
 .ai-badge:hover,
-.ai-badge:focus {
+.ai-badge:focus,
+.ai-badge.open {
   background-color: rgba(255, 255, 255, 0.16);
   border-color: var(--green);
   color: white;
@@ -402,11 +416,135 @@ a { color: white; }
   transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
   pointer-events: none;
   z-index: 5;
+  text-align: left;
 }
 
 .ai-badge:hover .ai-badge-tooltip,
-.ai-badge:focus .ai-badge-tooltip {
+.ai-badge:focus .ai-badge-tooltip,
+.ai-badge.open .ai-badge-tooltip {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+/* =========================================================
+   MOBILE OPTIMIZATIONS
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* Nav: shrink padding, keep it usable with a thumb */
+  nav li {
+    padding: 14px 0px;
+  }
+
+  .nav-bar {
+    margin-left: 12px;
+  }
+
+  .main-btn {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+
+  .projects-btn,
+  .about-btn {
+    margin-left: -60px;
+  }
+
+  /* Blob: shrink and dampen so it doesn't dominate small screens */
+  #blob {
+    height: 260px;
+  }
+
+  #blur {
+    backdrop-filter: blur(90px);
+  }
+
+  /* Page content: tighter spacing, smaller title */
+  .page-wrap {
+    padding: 110px 16px 70px;
+    gap: 32px;
+  }
+
+  .page-title {
+    font-size: clamp(1.8rem, 10vw, 3rem);
+  }
+
+  .page-subtitle {
+    font-size: 0.85rem;
+  }
+
+  /* Gallery: single column, tighter gaps */
+  .gallery {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+    gap: 18px;
+  }
+
+  .gallery-card {
+    border-radius: 12px;
+  }
+
+  .gallery-info {
+    padding: 14px 16px 16px;
+  }
+
+  .gallery-info h2 {
+    font-size: 16px;
+  }
+
+  .gallery-info p {
+    font-size: 12.5px;
+  }
+
+  /* Card footer: stack AI badge under the link if space is tight */
+  .card-footer {
+    flex-wrap: wrap;
+  }
+
+  /* AI tooltip: keep it on-screen instead of overflowing right edge */
+  .ai-badge-tooltip {
+    width: 180px;
+    right: -8px;
+  }
+
+  /* Lightbox: arrows always visible on touch (no hover available) */
+  .lightbox-arrow {
+    opacity: 1;
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .lightbox-arrow-left { left: 8px; }
+  .lightbox-arrow-right { right: 8px; }
+
+  .lightbox-close {
+    top: 14px;
+    right: 16px;
+    font-size: 32px;
+  }
+
+  .lightbox-content img,
+  .lightbox-content video,
+  .lightbox-content iframe {
+    max-width: 92vw;
+    max-height: 78vh;
+  }
+
+  .lightbox-counter {
+    bottom: 14px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .page-title {
+    font-size: 1.9rem;
+  }
+
+  #blob {
+    height: 200px;
+  }
 }
